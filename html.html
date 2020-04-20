@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- 定义网页作者 -->
+	<meta name="author" content="Mr.Gu">
+	<meta name="description" content="Web学习">
+	<title>HTML超文本标记语言</title>
+	<!-- link 链接到样式 外部引用-->
+	<link rel="stylesheet" type="text/css" href="./html.css"/>
+	<!-- js脚本-->
+	<script src="./html.js"></script>
+	<!-- 样式 内部样式表-->
+	<style type="text/css">
+		body{background-color: antiquewhite;}
+	</style>
+</head>
+
+<body>
+	<h2 id="top">HTML 参考手册</h2>
+	<h3><a href="https://www.runoob.com/tags/html-reference.html" target="_blank">HTML5 标准</a></h3>
+	<hr/>
+	<h2>基础</h2>
+	<p>这是一个段落，下面展示一张图片</p>
+	<img src="./img_us.jpg" width="250" height="250"/>
+	<p class="center">通过class设置文字居</p>
+	<p id="paragraph_1">通过id设置文字居</p>
+	<h3 class="center">春晓</h3>
+	<p class="center middle-font-size">春眠不觉晓，<br/>处处闻啼鸟。<br/>夜来风雨声，<br/>花落知多少。</p>
+
+	<p>html 文本格式化展示效果<b>粗体</b><em>斜体</em> 标注<sub>下标</sub><sup>上标</sup><del>删除文字</del><ins>插入文字</ins></p>
+	<a href="https://blog.csdn.net/qq_31028313" target="_blank">我的CSDN主页</a><br/>
+	<a href="#top" >跳到头部</a>
+	<p>可以添加在头部区域的元素标签为:title ,style ,meta ,link ,script ,noscript ,base </p>
+	<h3>CSS样式使用方式</h3>
+	<ul style="list-style-type:square">
+		<li>内联样式</li>
+		<li>内部样式表</li>
+		<li>外部引用</li>
+	</ul>
+
+	<h3>图片</h3>
+	<img class="item" src="./img_us.jpg" alt="我们" >
+	<img class="item" src="./img_us.jpg"  style="float: right;" alt="我们" >
+
+
+	<h3>表格</h3>
+	<table border="1" cellspacing="0">
+		<caption>基本信息</caption>
+		<tr>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>住址</th>
+		</tr>
+	
+
+		<tr>
+			<td>Ms Chen</td>
+			<td>female</td>
+			<td>Jiaozuo</td>
+		</tr>
+		<tr>
+			<td>Mr. Gu</td>
+			<td>male</td>
+			<td>Zhengzhou</td>
+		</tr>
+	</table>
+
+	<table border="1" cellspacing="0">
+		<caption>跨行跨列表格</caption>
+		<thead>
+			<tr>
+				<td>姓名</td>
+				<td colspan="2">联系方式</td>
+	
+			</tr>
+		</thead>
+		<tfoot>
+			<td>tfoot</td>
+			<td>tfoot</td>
+			<td>tfoot</td>
+		</tfoot>
+		<tr>
+			<td rowspan="2">Ms Chen</td>
+			<td>123456789</td>
+			<td>987654321</td>
+		</tr>
+		<tr>
+		
+			<td>abc</td>
+			<td>cba</td>
+		</tr>
+	</table>
+	<h3>有序、无序列表</h3>
+	<ul>
+		<li>水果
+			<ol type="i">
+				<li>香蕉</li>
+				<li>苹果</li>
+				<li>梨</li>
+				<li>柠檬</li>
+			</ol>
+		</li>
+		<li>蔬菜
+			<ol type="i">
+				<li>番茄</li>
+				<li>茄子</li>
+				<li>黄瓜</li>
+				<li>洋葱</li>
+			</ol>
+		</li>
+	</ul>
+
+	<h3>布局</h3>
+	 
+<div id="container" style="width:100%">
+ 
+	<div id="header" style="background-color:#FFA500;">
+	<h1 style="margin-bottom:0;">我的学习内容</h1></div>
+	 
+	<div id="menu" style="background-color:#FFD700;height:200px;width:20%;float:left;">
+	<b>菜单</b><br>
+	HTML<br>
+	CSS<br>
+	JavaScript</div>
+	 
+	<div id="content" style="background-color:#EEEEEE;height:200px;width:80%;float:left;">
+	内容在这里</div>
+	 
+	<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+	版权 Mr. Gu</div>
+</div>
+<h3>表单</h3>
+	<form action="./form-data.html" target="_blank" method="GET">
+		<fieldset>
+			<legend>基础信息</legend>
+			姓：<input type="text" name="firstname"><br>
+			名：<input type="text" name="lastname"><br>
+			密码：<input type="password" name="password"><br>
+		</fieldset>
+	性别：<br>
+		<input type="radio" name="sex" value="male" checked="checked" >男<br>
+		<input type="radio" name="sex" value="female">女<br>
+	年龄段：<br>
+		<select name="age" id="selage">
+			<option value="first">0-18</option>
+			<option value="second">19-30</option>
+			<option value="third">31-60</option>
+			<option value="fourth">60+</option>
+		</select><br>
+	爱好：<br>
+		<input type="checkbox" name="hobby" value="hobby_film">看电影<br>
+		<input type="checkbox" name="hobby" value="hobby_game">打游戏<br>
+		<input type="checkbox" name="hobby" value="hobby_tour">旅游<br>
+		<input type="checkbox" name="hobby" value="hobby_sport">运动<br>
+	备注：<br>
+		<textarea rows="5" cols="60" name="note" placeholder="请输入备注"></textarea><br>
+	
+		<input type="reset" value="重置"><input type="submit" value="提交">
+	</form>
+	<h3>框架:iframe</h3>
+	<p><a href="https://blog.csdn.net/qq_31028313" target="iframe_a">我的CSDN</a><br>
+		<a href="https://www.baidu.com/" target="iframe_a">百度一下</a>
+	</p>
+	<iframe src="https://blog.csdn.net/qq_31028313" frameborder="0" name="iframe_a"><p>您的浏览器不支持  iframe 标签。</p></iframe>
+</body>
+
+
+</html>
