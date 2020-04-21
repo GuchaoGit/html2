@@ -160,9 +160,14 @@
 	</form>
 	<h3>框架:iframe</h3>
 	<p><a href="https://blog.csdn.net/qq_31028313" target="iframe_a">我的CSDN</a><br>
-		<a href="https://www.baidu.com/" target="iframe_a">百度一下</a>
-	</p>
-	<iframe src="https://blog.csdn.net/qq_31028313" frameborder="0" name="iframe_a"><p>您的浏览器不支持  iframe 标签。</p></iframe>
+		<a href="https://www.baidu.com/" target="iframe_a">百度一下</a></p>
+		
+	<iframe src="https://blog.csdn.net/qq_31028313" frameborder="0" name="iframe_a">
+		<p>您的浏览器不支持  iframe 标签。</p></iframe>
+	<h3>脚本</h3>
+	<p id="pshow">点击下方按钮</p>
+	<button type="button" onclick="onClick()">点我</button>
+	<button type="button" onclick="reset(pshow)">重置</button>
 </body>
 
 
