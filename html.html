@@ -40,7 +40,7 @@
 	</ul>
 
 	<h3>图片</h3>
-	<img class="item" src="./img_us.jpg" alt="我们" >
+	<img id="img1" class="item" src="./img_us.jpg" alt="我们" >
 	<img class="item" src="./img_us.jpg"  style="float: right;" alt="我们" >
 
 
@@ -102,7 +102,7 @@
 			</ol>
 		</li>
 		<li>蔬菜
-			<ol type="i">
+			<ol type="a">
 				<li>番茄</li>
 				<li>茄子</li>
 				<li>黄瓜</li>
@@ -158,6 +158,7 @@
 	
 		<input type="reset" value="重置"><input type="submit" value="提交">
 	</form>
+
 	<h3>框架:iframe</h3>
 	<p><a href="https://blog.csdn.net/qq_31028313" target="iframe_a">我的CSDN</a><br>
 		<a href="https://www.baidu.com/" target="iframe_a">百度一下</a></p>
@@ -168,6 +169,50 @@
 	<p id="pshow">点击下方按钮</p>
 	<button type="button" onclick="onClick()">点我</button>
 	<button type="button" onclick="reset(pshow)">重置</button>
+	<h3>字符实体</h3>
+	<p>a&#768; &lt;&gt;&amp;&quot;&apos; 或 &#60; &#62; &#38; &#34; &#39;</p>
+	<h3>url统一支援定位器</h3>
+	<p><code>scheme://host.domain:port/path/filename</code><br>
+		<a href="https://blog.csdn.net/qq_31028313" target="_blank">https://blog.csdn.net/qq_31028313</a>
+	</p>
+	<ul>
+		<li>scheme-定义网络服务类型：http https ftp file</li>
+		<li>host-定义域主机</li>
+		<li>domain-定义因特网域名</li>
+		<li>:port-定义端口 默认80</li>
+		<li>path-定义服务器上的路径（省略则为根目录）</li>
+		<li>filename-定义文档、资源的名称</li>
+	</ul>
+
+	<hr/>
+	<h2>HTML5教程</h2>
+	<h3>canvas</h3>
+
+	<div class="float-left">
+		<canvas id="myCanvas" class="whitebg" width="640" height="360">
+			您的浏览器不支持 HTML5 canvas 标签。
+		</canvas>
+	</div>
+	<div class="float-left">
+		<button type="button" onclick="drawRect(myCanvas)">绘制矩形</button><br>
+		<button type="button" class="margin-top" onclick="drawCircle(myCanvas)">绘制圆形</button><br>
+		<button type="button" class="margin-top" onclick="drawText(myCanvas,'hello')">绘制文字</button><br>
+		<button type="button" class="margin-top"onclick="drawGradient(myCanvas)">绘制渐变</button><br>
+		<button type="button" class="margin-top"onclick="drawImage(myCanvas,img1)">绘制图片</button>
+	</div>
+
+	<h3 class="clear">视频、音频</h3>
+	<p>&lt;video&gt;播放视频。&lt;audio&gt;播放音频</p>
+	<video id="video1" width="640" height="360" controls autoplay>
+		<source src="./bxqy2.mp4"
+		type="video/mp4">
+	</video>
+	<video id="video2" src="./bxqy.mp4"  width="640" height="360" ></video><br>
+	<button type="button" class="float-right" onclick="playPause(video2)">播放/暂停</button>
+
+	<audio src="./cylxgdty.mp3" controls></audio>
+
+
 </body>
 
 
