@@ -6,6 +6,12 @@
 	<meta name="author" content="Mr.Gu">
 	<meta name="description" content="Web学习">
 	<title>HTML超文本标记语言</title>
+
+	<!-- 兼容 Internet Explorer 8 及更早IE版本中的语义元素使用问题 -->
+	<!--[if lt IE 9]>
+	<script src="html5shiv.js"></script>
+	<![endif]-->
+
 	<!-- link 链接到样式 外部引用-->
 	<link rel="stylesheet" type="text/css" href="./html.css"/>
 	<!-- js脚本-->
@@ -134,9 +140,9 @@
 	<form action="./form-data.html" target="_blank" method="GET">
 		<fieldset>
 			<legend>基础信息</legend>
-			姓：<input type="text" name="firstname"><br>
-			名：<input type="text" name="lastname"><br>
-			密码：<input type="password" name="password"><br>
+			姓：<input type="text" name="firstname" autocomplete="on"><br>
+			名：<input type="text" name="lastname" autocomplete="on"><br>
+			密码：<input type="password" name="password" autocomplete="off"><br>
 		</fieldset>
 	性别：<br>
 		<input type="radio" name="sex" value="male" checked="checked" >男<br>
@@ -186,6 +192,9 @@
 
 	<hr/>
 	<h2>HTML5教程</h2>
+	<h3>浏览器支持</h3>
+	<article>这是article标签里的内容</article>
+
 	<h3>canvas</h3>
 
 	<div class="float-left">
@@ -207,12 +216,119 @@
 		<source src="./bxqy2.mp4"
 		type="video/mp4">
 	</video>
-	<video id="video2" src="./bxqy.mp4"  width="640" height="360" ></video><br>
+	<video id="video2" src="./bxqy.mp4"  width="640" height="360" >该浏览器不支持视频播放</video><br>
 	<button type="button" class="float-right" onclick="playPause(video2)">播放/暂停</button>
 
-	<audio src="./cylxgdty.mp3" controls></audio>
+	<audio src="./cylxgdty.mp3" controls>该浏览器不支持音频播放</audio>
 
 
+	<h3>MathML</h3>
+	<div>
+		<math xmlns="http://www.w3.org/1998/Math/MathML">
+		
+			<mrow>
+			   <msup><mi>a</mi><mn>2</mn></msup>
+			   <mo>+</mo>
+				   
+			   <msup><mi>b</mi><mn>2</mn></msup>
+			   <mo>=</mo>
+				   
+			   <msup><mi>c</mi><mn>2</mn></msup>
+			</mrow>
+			   
+		 </math>
+	</div>
+	<h3>拖放</h3>
+	<div id="divtarget" class="whitebg rect float-left" ondrop="drop(event) " ondragover="allowDrop(event)">
+	选择一
+	</div>
+	<div id="divtarget2" class="whitebg rect float-left" ondrop="drop(event) " ondragover="allowDrop(event)">
+	选择二
+	</div>
+	<br class="clear">
+	<img id="dragimg" src="./img_us.jpg" alt="我们" class="item top" draggable="true" ondragstart="drag(event)">
+
+	<h3>地理位置</h3>
+	<div>
+		<p id="plocation">点击按钮获取您当前坐标（可能需要比较长的时间获取）：</p>
+		<button type="button" onclick="getLocation(plocation)">获取位置</button>
+	</div>
+	<h3>Input类型</h3>
+	<div>
+		<form action="./form-data.html" target="_blank">
+			选择你喜欢的颜色: <input type="color" name="favcolor"><br>
+			生日：<input type="date" name="bday"><br>
+			生日(年月)：<input type="month" name="bdaymonth"><br>
+			邮箱：<input type="email" name="email" required><br>
+			评分 ( 1 到 5 之间 ): <input type="number" name="quantity" min="1" max="5"><br>
+			Points: <input type="range" name="points" min="1" max="5"><br>
+			搜索：<input type="search" name="search" ><br>
+			时间：<input type="time" name="time"><br>
+			添加您的主页：<input type="url" name="url"><br>
+			<br><br>
+			你喜欢的浏览器：<input list="browsers" name="favbrowser">
+			<datalist id="browsers">
+				<option value="Internet Explorer"></option>
+				<option value="Firefox"></option>
+				<option value="Chrome"></option>
+				<option value="Opera"></option>
+				<option value="Safari"></option>
+			</datalist><br>
+			<input type="submit">
+		</form>
+	</div>
+	<div>
+		<form action="./form-post-data.html" method="GET" target="_blank">
+			姓名：<input type="text" name="name" placeholder="请输入姓名"><br>
+			<input type="submit" value="GET提交"><br>
+			<input type="submit" formmethod="POST" value="POST提交"><br>
+			<input type="submit" formmethod="POST" formenctype="multipart/form-data" value="以multipart/form-data 提交">
+		</form>
+	</div>
+	<h3>语义元素</h3>
+	<figure>
+		<img src="img_us.jpg" alt="我们" class="item">
+		<figcaption>Fig1. photo of us</figcaption>
+	</figure>
+
+	<h3>Web存储</h3>
+	<div>
+		客户端存储数据的两个对象：
+		<ul>
+			<li>localStorage-用于长久保存整个网站的数据，没有过期时间</li>
+			<li>sessionStorage-用于临时保存同一窗口的数据，在关闭窗口之后会删除这些数据</li>
+		</ul>
+		不管是 localStorage，还是 sessionStorage，可使用的API都相同:
+		<ul>
+			<li>保存数据：localStorage.setItem(key,value);</li>
+			<li>读取数据：localStorage.getItem(key);</li>
+			<li>删除单个数据：localStorage.removeItem(key);</li>
+			<li>删除所有数据：localStorage.clear();</li>
+			<li>得到某个索引的key：localStorage.key(index);</li>
+		</ul>
+	</div>
+	<div id="divstorage">展示数据</div>
+	<button onclick="localStorageSave('name','谷超')">localStorage保存 name：谷超</button>
+	<button onclick="localStorageGet(divstorage,'name')" >localStorage获取 name的值</button>
+	<button onclick="removeItem(divstorage,'name')" >localStorage清除name的值</button><br>
+	<button onclick="clickCounter(divstorage,)" >sessionStorage实现计数器</button>
+
+	<h3>Web SQL 数据库</h3>
+	<div>
+		核心方法：
+		<ol>
+			<li>openDatabase：这个方法使用现有的数据库或者新建的数据库创建一个数据库对象。</li>
+			<li>transaction：这个方法让我们能够控制一个事务，以及基于这种情况执行提交或者回滚。</li>
+			<li>executeSql：这个方法用于执行实际的 SQL 查询。</li>
+		</ol>
+		<div id="divsql"></div>
+		<button onclick="websqlCreateTable()">用websql创建数据库并插入数据</button><br>
+		<button onclick="websqlReadDb(divsql)">读取websql数据</button><br>
+		<button onclick="websqlDelete(divsql,1)">删除id=1数据</button><br>
+
+	</div>
+	<h3>应用程序缓存</h3>
+	<a href="./app-cache.html" target="_blank">跳转到应用程序缓存使用界面</a>
 </body>
 
 

@@ -25,6 +25,9 @@ img.item{
     height: 250px;
 }
 
+img.top {vertical-align:text-top;}
+
+
 table{
 
 }
@@ -55,4 +58,8 @@ iframe{
 }
 .margin-top{
     margin-top: 5px;
+}
+.rect{
+    width: 480px;
+    height: 270px;
 }
