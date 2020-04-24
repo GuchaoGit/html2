@@ -9,13 +9,13 @@
 
 	<!-- 兼容 Internet Explorer 8 及更早IE版本中的语义元素使用问题 -->
 	<!--[if lt IE 9]>
-	<script src="html5shiv.js"></script>
+	<script src="./js/html5shiv.js"></script>
 	<![endif]-->
 
 	<!-- link 链接到样式 外部引用-->
-	<link rel="stylesheet" type="text/css" href="./html.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/html.css"/>
 	<!-- js脚本-->
-	<script src="./html.js"></script>
+	<script src="./js/html.js"></script>
 	<!-- 样式 内部样式表-->
 	<style type="text/css">
 		body{background-color: antiquewhite;}
@@ -28,7 +28,7 @@
 	<hr/>
 	<h2>基础</h2>
 	<p>这是一个段落，下面展示一张图片</p>
-	<img src="./img_us.jpg" width="250" height="250"/>
+	<img src="./images/img_us.jpg" width="250" height="250"/>
 	<p class="center">通过class设置文字居</p>
 	<p id="paragraph_1">通过id设置文字居</p>
 	<h3 class="center">春晓</h3>
@@ -46,8 +46,8 @@
 	</ul>
 
 	<h3>图片</h3>
-	<img id="img1" class="item" src="./img_us.jpg" alt="我们" >
-	<img class="item" src="./img_us.jpg"  style="float: right;" alt="我们" >
+	<img id="img1" class="item" src="./images/img_us.jpg" alt="我们" >
+	<img class="item" src="./images/img_us.jpg"  style="float: right;" alt="我们" >
 
 
 	<h3>表格</h3>
@@ -213,13 +213,13 @@
 	<h3 class="clear">视频、音频</h3>
 	<p>&lt;video&gt;播放视频。&lt;audio&gt;播放音频</p>
 	<video id="video1" width="640" height="360" controls autoplay>
-		<source src="./bxqy2.mp4"
+		<source src="./asset/bxqy2.mp4"
 		type="video/mp4">
 	</video>
-	<video id="video2" src="./bxqy.mp4"  width="640" height="360" >该浏览器不支持视频播放</video><br>
+	<video id="video2" src="./asset/bxqy.mp4"  width="640" height="360" >该浏览器不支持视频播放</video><br>
 	<button type="button" class="float-right" onclick="playPause(video2)">播放/暂停</button>
 
-	<audio src="./cylxgdty.mp3" controls>该浏览器不支持音频播放</audio>
+	<audio src="./asset/cylxgdty.mp3" controls>该浏览器不支持音频播放</audio>
 
 
 	<h3>MathML</h3>
@@ -246,7 +246,7 @@
 	选择二
 	</div>
 	<br class="clear">
-	<img id="dragimg" src="./img_us.jpg" alt="我们" class="item top" draggable="true" ondragstart="drag(event)">
+	<img id="dragimg" src="./images/img_us.jpg" alt="我们" class="item top" draggable="true" ondragstart="drag(event)">
 
 	<h3>地理位置</h3>
 	<div>
@@ -287,7 +287,7 @@
 	</div>
 	<h3>语义元素</h3>
 	<figure>
-		<img src="img_us.jpg" alt="我们" class="item">
+		<img src="./images/img_us.jpg" alt="我们" class="item">
 		<figcaption>Fig1. photo of us</figcaption>
 	</figure>
 
@@ -329,6 +329,40 @@
 	</div>
 	<h3>应用程序缓存</h3>
 	<a href="./app-cache.html" target="_blank">跳转到应用程序缓存使用界面</a>
+	<h3>Web worker:耗时后台任务</h3>
+	<div>
+		<p>计数： <output id="pworkershow"></output></p>
+		<button onclick="startWorker(pworkershow)">开始工作</button> 
+		<button onclick="stopWorker(pworkershow)">停止工作</button>
+	</div>
+
+	<h3>服务器发送时间（Server-Sent Events）</h3>
+	<div>
+		允许网页获得来自服务器的更新。<br>
+		Server-Sent 事件指的是网页自动获取来自服务器的更新。
+		<p>来自服务器的更新： <output id="pserversentevent"></output></p>
+	</div>
+	<script>
+		var show = document.getElementById("pserversentevent");
+		if(typeof(EventSource)!=="undefined")
+		{
+   			// 浏览器支持 Server-Sent
+   			show.innerHTML = "开始创建EventSource<br>";
+   			var source=new EventSource("./serversendevent.asp");
+   			source.onmessage=function(event)
+   			{
+   				show.innerHTML+=event.data + "<br>";
+			};
+			source.onerror=function(event){
+				show.innerHTML+="出错了"+event.data + "<br>";
+			};
+		}
+		else
+		{
+   			// 浏览器不支持 Server-Sent..
+   			show.innerHTML="浏览器不支持 Server-Sent..";
+		}
+   </script>
 </body>
 
 

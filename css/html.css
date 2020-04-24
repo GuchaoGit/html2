@@ -1,4 +1,9 @@
 @charset "utf-8";
+header, section, footer, aside, nav, article, figure
+{ 
+    display: block; 
+}
+
 #paragraph_1{
     text-align: center;
     color: aqua;

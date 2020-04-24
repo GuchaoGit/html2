@@ -15,6 +15,16 @@
             "文档内容......<br><br>"+
             "&lt;/body&gt;<br>&lt;/html&gt;";
         </script>
+
+        <div>
+            manifest 文件需要配置正确的 MIME-type: text/cache-manifest
+            <ul>
+                <li>text/cache-manifest:首次下载后进行缓存</li>
+                <li>text/network:文件需要与服务器的连接，且不会被缓存</li>
+                <li>text/fallback:当页面无法访问时的回退页面（比如 404 页面）</li>
+            </ul>
+
+        </div>
         
     </body>
 </html>
