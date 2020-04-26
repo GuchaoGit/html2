@@ -207,7 +207,7 @@ var workerUser;
 function startWorker(show){
     if(typeof(Worker) !== 'undefined'){
         if(typeof(workerUser)=='undefined'){
-            workerUser = new Worker("./webworker.js");
+            workerUser = new Worker("./js/webworker.js");
         }
         workerUser.onmessage=function(event){
             show.innerHTML=event.data;
